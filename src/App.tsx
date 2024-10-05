@@ -1,39 +1,19 @@
 import { useState } from "react";
 import FormToAddTask from "./components/form-to-add-task";
 import TaskList from "./components/task-list";
+import { v4 } from "uuid";
 
 export interface TaskListProps {
-  id: number;
+  id: string;
   title: string;
   description: string;
   isCompleted: boolean;
 }
 
-const tasksList: TaskListProps[] = [
-  {
-    id: 1,
-    title: "Tarefa 1",
-    description: "Descrição da tarefa 1",
-    isCompleted: false,
-  },
-  {
-    id: 2,
-    title: "Tarefa 2",
-    description: "Descrição da tarefa 2",
-    isCompleted: false,
-  },
-  {
-    id: 3,
-    title: "Tarefa 3",
-    description: "Descrição da tarefa 3",
-    isCompleted: false,
-  },
-];
-
 function App() {
-  const [tasks, setTasks] = useState<TaskListProps[]>(tasksList);
+  const [tasks, setTasks] = useState<TaskListProps[]>([]);
 
-  function onTaskStatusChange(taskId: number) {
+  function onTaskUpdate(taskId: string) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
         return {
@@ -46,20 +26,31 @@ function App() {
     setTasks(newTasks);
   }
 
-  function onTaskDelete(taskId: number) {
+  function onTaskDelete(taskId: string) {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   }
+
+  function onTaskAdd(title: string, description: string) {
+    const newTasks = {
+      id: v4(),
+      title,
+      description,
+      isCompleted: false,
+    };
+    setTasks([...tasks, newTasks]);
+  }
+
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
-      <div className="w-[500px]">
+      <div className="w-[500px] space-y-4">
         <h1 className="text-3xl font-bold text-slate-100 text-center">
           Gerenciamento de Tarefas
         </h1>
-        <FormToAddTask />
+        <FormToAddTask onAdd={onTaskAdd} />
         <TaskList
           tasks={tasks}
-          onUpdate={onTaskStatusChange}
+          onUpdate={onTaskUpdate}
           onDelete={onTaskDelete}
         />
       </div>
