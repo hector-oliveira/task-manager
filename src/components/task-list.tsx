@@ -3,8 +3,8 @@ import { TaskListProps } from "../App";
 
 interface TaskListComponentProps {
   tasks: TaskListProps[];
-  onUpdate: (taskId: number) => void;
-  onDelete: (taskId: number) => void;
+  onUpdate: (taskId: string) => void;
+  onDelete: (taskId: string) => void;
 }
 
 function TaskList({ tasks, onUpdate, onDelete }: TaskListComponentProps) {
