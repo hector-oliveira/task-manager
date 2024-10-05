@@ -45,14 +45,23 @@ function App() {
     });
     setTasks(newTasks);
   }
+
+  function onTaskDelete(taskId: number) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
+  }
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px]">
-        <h1 className="text-3xl font-bold bg-slate-100 text-center">
+        <h1 className="text-3xl font-bold text-slate-100 text-center">
           Gerenciamento de Tarefas
         </h1>
         <FormToAddTask />
-        <TaskList tasks={tasks} callFunction={onTaskStatusChange} />
+        <TaskList
+          tasks={tasks}
+          onUpdate={onTaskStatusChange}
+          onDelete={onTaskDelete}
+        />
       </div>
     </div>
   );
