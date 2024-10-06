@@ -11,8 +11,29 @@ export interface TaskListProps {
   isCompleted: boolean;
 }
 
+const tasksData: TaskListProps[] = [
+  {
+    id: v4(),
+    title: "Tarefa 1",
+    description: "Descrição da tarefa 1",
+    isCompleted: false,
+  },
+  {
+    id: v4(),
+    title: "Tarefa 2",
+    description: "Descrição da tarefa 2",
+    isCompleted: false,
+  },
+  {
+    id: v4(),
+    title: "Tarefa 3",
+    description: "Descrição da tarefa 3",
+    isCompleted: false,
+  },
+];
+
 function App() {
-  const [tasks, setTasks] = useState<TaskListProps[]>([]);
+  const [tasks, setTasks] = useState<TaskListProps[]>(tasksData);
 
   function onTaskUpdate(taskId: string) {
     const newTasks = tasks.map((task) => {
