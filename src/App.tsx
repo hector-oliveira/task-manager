@@ -2,6 +2,7 @@ import { useState } from "react";
 import FormToAddTask from "./components/form-to-add-task";
 import TaskList from "./components/task-list";
 import { v4 } from "uuid";
+import Container from "./components/container";
 
 export interface TaskListProps {
   id: string;
@@ -42,7 +43,7 @@ function App() {
   }
 
   return (
-    <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
+    <Container>
       <div className="w-[500px] space-y-4">
         <h1 className="text-3xl font-bold text-slate-100 text-center">
           Gerenciamento de Tarefas
@@ -54,7 +55,7 @@ function App() {
           onDelete={onTaskDelete}
         />
       </div>
-    </div>
+    </Container>
   );
 }
 
