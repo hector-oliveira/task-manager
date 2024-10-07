@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FormToAddTask from "./components/form-to-add-task";
 import TaskList from "./components/task-list";
 import { v4 } from "uuid";
@@ -11,29 +11,13 @@ export interface TaskListProps {
   isCompleted: boolean;
 }
 
-const tasksData: TaskListProps[] = [
-  {
-    id: v4(),
-    title: "Tarefa 1",
-    description: "Descrição da tarefa 1",
-    isCompleted: false,
-  },
-  {
-    id: v4(),
-    title: "Tarefa 2",
-    description: "Descrição da tarefa 2",
-    isCompleted: false,
-  },
-  {
-    id: v4(),
-    title: "Tarefa 3",
-    description: "Descrição da tarefa 3",
-    isCompleted: false,
-  },
-];
-
 function App() {
+  const tasksData = JSON.parse(localStorage.getItem("tasks") || "[]");
   const [tasks, setTasks] = useState<TaskListProps[]>(tasksData);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function onTaskUpdate(taskId: string) {
     const newTasks = tasks.map((task) => {
