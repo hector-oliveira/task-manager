@@ -1,6 +1,6 @@
 import { TaskListProps } from "../App";
-import { renderTasks } from "../helpers/render-task-list";
-import { useTaskList } from "../hooks/use-task-list";
+import { renderTasks } from "@helpers/render-task-list";
+import { useTaskList } from "@hooks/use-task-list";
 
 export interface TaskListComponentProps {
   tasks: TaskListProps[];

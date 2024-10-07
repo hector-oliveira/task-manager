@@ -1,6 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import Container from "../../components/container";
 import { ChevronLeftIcon } from "lucide-react";
+import Container from "@components/container";
 
 function TaskDetails() {
   const navigate = useNavigate();

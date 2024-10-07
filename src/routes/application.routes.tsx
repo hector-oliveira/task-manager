@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import * as S from "../pages";
+import * as S from "@public/index";
 
 export const applicationRoutes = createBrowserRouter([
   {

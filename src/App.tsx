@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import FormToAddTask from "./components/form-to-add-task";
-import TaskList from "./components/task-list";
 import { v4 } from "uuid";
-import Container from "./components/container";
+import Container from "@components/container";
+import FormToAddTask from "@components/form-to-add-task";
+import TaskList from "@components/task-list";
 
 export interface TaskListProps {
   id: string;
