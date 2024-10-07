@@ -1,7 +1,7 @@
 import { ChevronRight, TrashIcon } from "lucide-react";
 import { TaskListProps } from "../App";
-import Button from "../components/Button";
 import { TaskListComponentProps } from "../components/task-list";
+import Button from "../components/button";
 
 interface RenderTaskList extends TaskListComponentProps {
   handleSeeTaskDetails: ({ title, description }: TaskListProps) => void;
