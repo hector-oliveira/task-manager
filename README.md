@@ -1,50 +1,80 @@
-# React + TypeScript + Vite
+# Gerenciador de Tarefas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Visão Geral
 
-Currently, two official plugins are available:
+O Gerenciador de Tarefas é uma aplicação que permite aos usuários adicionar, visualizar e navegar entre tarefas. Ele possui um formulário para adicionar novas tarefas com título e descrição, e uma lista que renderiza as tarefas adicionadas. Ao clicar em uma tarefa, o usuário é levado a uma tela de descrição detalhada da tarefa.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Capturas de Tela
 
-## Expanding the ESLint configuration
+### Tela Inicial
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Tela Inicial](https://i.imgur.com/VndJzyR.png[/img])
 
-- Configure the top-level `parserOptions` property like this:
+### Descrição da Tarefa
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+![Descrição da Tarefa](https://i.imgur.com/L8gcU6C.png[/img])
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Instalação
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Para instalar e executar o projeto localmente, siga os passos abaixo:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone o repositório:
+   ```sh
+   git clone <https://github.com/hector-oliveira/task-manager.git>
+   ```
+2. Navegue até o diretório do projeto:
+   ```sh
+   cd task-manager
+   ```
+3. Instale as dependências com o gerenciador de pacotes de sua preferência:
+
+   ```sh
+   npm run dev
+   ```
+
+   ```sh
+   yarn dev
+   ```
+
+   ```sh
+   pnpm dev
+   ```
+
+4. Inicie a aplicação com o gerenciador de pacotes de sua preferência :
+   ```sh
+   npm run dev
+   ```
+   ```sh
+   yarn dev
+   ```
+   ```sh
+   pnpm dev
+   ```
+
+## Uso
+
+1. Abra o navegador e acesse `http://localhost:5173/`.
+2. Utilize o formulário para adicionar novas tarefas inserindo um título e uma descrição.
+3. As tarefas adicionadas serão exibidas em uma lista.
+4. Clique no ícone com a seta para direita para visualizar a descrição detalhada.
+5. Clique no ícone da lixeira para deletar uma tarefa
+6. Na tarefa adicionada é possível clicar para marcar como concluída.
+7. As tarefas são armazenadas no LocalStorage.
+8. Caso limpe o histórico do navegador, todas as tarefas serão deletadas
+
+## Componentes Principais
+
+### Formulário de Tarefas
+
+- **Descrição**: Componente que contém dois inputs, um para o título da tarefa e outro para a descrição.
+- **Função**: Permite ao usuário adicionar novas tarefas.
+
+### Lista de Tarefas
+
+- **Descrição**: Componente que renderiza todas as tarefas adicionadas.
+- **Função**: Exibe as tarefas em uma lista e permite a navegação para a tela de descrição da tarefa ao clicar em uma tarefa.
+
+### Tela de Descrição da Tarefa
+
+- **Descrição**: Componente que exibe a descrição detalhada de uma tarefa selecionada.
+- **Função**: Permite ao usuário visualizar os detalhes completos de uma tarefa específica.
