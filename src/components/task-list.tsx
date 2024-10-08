@@ -11,8 +11,14 @@ export interface TaskListComponentProps {
 function TaskList({ tasks, onUpdate, onDelete }: TaskListComponentProps) {
   const { handleSeeTaskDetails } = useTaskList();
   return (
-    <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow ring-1 ring-slate-300">
-      {renderTasks({ handleSeeTaskDetails, onDelete, onUpdate, tasks })}
+    <ul className="space-y-4 p-3 bg-slate-200 rounded-md shadow ring-1 ring-slate-300">
+      {tasks.length > 0 ? (
+        renderTasks({ tasks, onUpdate, onDelete, handleSeeTaskDetails })
+      ) : (
+        <p className="text-slate-600 text-lg font-bold text-center">
+          Sem tarefas
+        </p>
+      )}
     </ul>
   );
 }
