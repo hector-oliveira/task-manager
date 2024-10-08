@@ -19,9 +19,7 @@ function renderTasks({
         <li key={task.id} className="flex gap-2">
           <Button
             onClick={() => onUpdate(task.id)}
-            className={`w-full hover:bg-slate-500 ${
-              task.isCompleted && "line-through"
-            }`}
+            className={`w-full ${task.isCompleted && "line-through"}`}
           >
             {task.title}
           </Button>
