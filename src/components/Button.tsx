@@ -8,7 +8,7 @@ function Button({ children, ...rest }: ButtonProps) {
   return (
     <button
       {...rest}
-      className={`bg-slate-400 text-white text-left p-2 rounded-md ${rest.className}`}
+      className={`bg-slate-400 text-white text-left p-2 rounded-md hover:bg-slate-500 ${rest.className}`}
     >
       {children}
     </button>
